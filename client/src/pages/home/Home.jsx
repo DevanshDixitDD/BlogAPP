@@ -11,7 +11,7 @@ const Home = () => {
   const [news, setnews] = useState([]);
   const [refresh, setRefresh] = useState(false)
   useEffect(() => {
-    axios.get("http://localhost:4000/api/v1/addnews/getnews", {
+    axios.get(`${server}/getnews`, {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
