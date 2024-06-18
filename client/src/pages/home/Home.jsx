@@ -18,6 +18,7 @@ const Home = () => {
       }
     })
       .then(response => {
+        setRefresh(!refresh)
         setnews(response.data.getnews)
       })
       .catch(error => {
