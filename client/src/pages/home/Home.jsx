@@ -23,7 +23,7 @@ const Home = () => {
       .catch(error => {
         console.log(error);
       })
-  }, [refresh])
+  }, [])
 
   const deleteHandler = async (id) => {
     try {
