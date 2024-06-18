@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
+import { server } from '../../main';
 
 const Update = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const Update = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put(`http://localhost:4000/api/v1/addnews/updatenews/${id}`, {
+      const { data } = await axios.put(`${server}/updatenews/${id}`, {
         title,
         subtitle,
         image,
@@ -39,7 +40,7 @@ const Update = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/api/v1/addnews/getsinglenews/${id}`, {
+    axios.get(`${server}/getsinglenews/${id}`, {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
