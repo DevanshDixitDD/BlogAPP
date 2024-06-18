@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { FaRegThumbsUp, FaThumbsUp, FaRegEye } from "react-icons/fa6";
 import { MdMessage } from "react-icons/md";
+import { server } from '../../main';
 const ViewNews = () => {
   const { id } = useParams();
   const [news, setnews] = useState([]);
@@ -11,7 +12,7 @@ const ViewNews = () => {
     setlike(!like);
   }
   useEffect(() => {
-    axios.get(`http://localhost:4000/api/v1/addnews/getsinglenews/${id}`,{
+    axios.get(`${server}/getsinglenews/${id}`,{
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
