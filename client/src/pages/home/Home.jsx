@@ -50,7 +50,7 @@ const Home = () => {
                 </div>
                 <div className='flex gap-5'>
                   <Link to={`/updatenews/${newsItem._id}`} className='border rounded-lg h-6 w-6 flex items-center justify-center bg-gray-200'><MdEdit /></Link>
-                  <Link to={'/'}  onClick={() => deleteHandler(newsItem._id)} className='border rounded-lg h-6 w-6 flex items-center justify-center bg-gray-200'><MdDelete /></Link>
+                  <Link to={'/home'}  onClick={() => deleteHandler(newsItem._id)} className='border rounded-lg h-6 w-6 flex items-center justify-center bg-gray-200'><MdDelete /></Link>
                 </div>
               </div>
               <div className='h-[200px]'>
