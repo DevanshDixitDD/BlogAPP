@@ -30,8 +30,8 @@ const Home = () => {
       const { data } = await axios.delete(`${server}/deletenews/${id}`, {
         withCredentials: true,
       });
-      toast.success(data.message);
       setRefresh(!refresh)
+      toast.success(data.message);
     } catch (error) {
       toast.error(error.response.data.message);
     }
