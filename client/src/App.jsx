@@ -44,67 +44,60 @@ function App() {
     
   },[])
 // layout for the home page 
-  const Layout = () => {
+  const Layout = ({ children }) => {
     return (
       <div className="main">
         {/* navbar  */}
         <Navbar />
         <div className="container min-w-full">
-       {/*   <div className="menuContainer">
+          {/*   <div className="menuContainer">
             
             <Menu />
           </div>*/}
           <div className="contentContainer">
             {/* outlet so that we can switch between pages without changing navbar and menu  */}
-            <Outlet />
+            {children}
           </div>
         </div>
         {/* footer  */}
         <Footer />
-        <Toaster/>
+        <Toaster />
       </div>
     )
   }
 
 
-// routing for the different pages 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Login />, // Display Login component at "/"
-  },
-  {
-    path: "/register",
-    element: <Register />, // Display Register component at "/register"
-  },
-  {
-    path: "/home",
-    element: <Layout />, // Display Home component at "/home"
-    //children router
-    children: [
-      {
-        path: "/home",
-        element: <Home />
-      },
-      {
-        path: "addnews",
-        element: <AddNews />
-      },
-      {
-        path: "viewnews/:id",
-        element: <ViewNews />
-      },
-      {
-        path: "updatenews/:id",
-        element: <Update />
-      },
-      {
-        path: "dashboard",
-        element: <Dashboard />
-      },
-    ]
-  },
-]);
+  // routing for the different pages 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Login />, 
+    },
+    {
+      path: "/register",
+      element: <Register />, 
+    },
+    {
+      path: "/home",
+      element: <Layout><Home /></Layout>,
+    },
+    {
+      path: "/addnews",
+      element: <Layout><AddNews /></Layout>, 
+    },
+    {
+      path: "/viewnews/:id",
+      element: <Layout><ViewNews /></Layout>, 
+    },
+    {
+      path: "/updatenews/:id",
+      element: <Layout><Update /></Layout>, 
+    },
+    {
+      path: "/dashboard",
+      element: <Layout><Dashboard /></Layout>, 
+    },
+  ]);
 
 // rendering router 
   return (
